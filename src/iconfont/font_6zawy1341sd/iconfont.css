@@ -18,4 +18,7 @@
 .icon-arrow-lift:before {
   content: "\e743";
 }
+.icon-arrow-right:before{
+  content: "\e742";
+}
 

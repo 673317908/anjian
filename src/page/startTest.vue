@@ -1,10 +1,10 @@
 <template>
   <div class="startTest">
-         <div class="Header">
-        <div class="login-tiltle">
-          <h2>实操考试系统</h2>
-        </div>
+<div class="Header">
+      <div class="login-tiltle">
+        <span>实操考试系统</span>
       </div>
+    </div>
     <div class="startTest-index" v-for="(val,index) of scoreLists" :key="index">
       <div class="startTest-userInfo">
         <!-- 考试科目 -->
@@ -158,10 +158,10 @@ export default {
         lose_id: item2.lose_id,
         is_checked: item2.is_check
       };
-      // let baseURL=this.baseURL
+      let baseURL=this.baseURL
       this.$axios({
-        // url: baseURL+"/Score/check",
-        url: "/api/Score/check",
+        url: baseURL+"/Score/check",
+        // url: "/api/Score/check",
         method: "post",
         headers: {
           token: sessionStorage.getItem("token")
@@ -181,10 +181,10 @@ export default {
         lose_point: item.lose_point
       };
       console.log(kouData);
-      // let baseURL=this.baseURL
+      let baseURL=this.baseURL
       this.$axios({
-        url: "/api/Score/setLoseScore",
-        // url: baseURL+"/Score/setLoseScore",
+        // url: "/api/Score/setLoseScore",
+        url: baseURL+"/Score/setLoseScore",
         method: "post",
         headers: {
           token: sessionStorage.getItem("token")
@@ -203,10 +203,10 @@ export default {
         get_id: item.get_id,
         get_point: item.get_point
       };
-      // let baseURL=this.baseURL
+      let baseURL=this.baseURL
       this.$axios({
-        // url: baseURL+"/Score/setGetScore",
-        url: "/api/Score/setGetScore",
+        url: baseURL+"/Score/setGetScore",
+        // url: "/api/Score/setGetScore",
         method: "post",
         headers: {
           token: sessionStorage.getItem("token")
@@ -223,10 +223,10 @@ export default {
         type: "warning"
       }).then(() => {
         let subjData = { subject_grade_id: subject_grade_id };
-        // let baseURL=this.baseURL
+        let baseURL=this.baseURL
         this.$axios({
-          // url: baseURL+"/Score/setGrade",
-          url: "/api/Score/setGrade",
+          url: baseURL+"/Score/setGrade",
+          // url: "/api/Score/setGrade",
           method: "post",
           headers: {
             token: sessionStorage.getItem("token")
@@ -250,20 +250,20 @@ export default {
     let getId = { id: this.$route.query.subject_grade_id };
     this.koufenlist=sessionStorage.getItem('koufen')
     this.defenlist=sessionStorage.getItem('defen')
-    // let baseURL=this.baseURL
+    let baseURL=this.baseURL
     this.$axios({
-      url: "/api/Grade/start",
-      // url: baseURL+"/Grade/start",
+      // url: "/api/Grade/start",
+      url: baseURL+"/Grade/start",
       headers: {
         token: sessionStorage.getItem("token")
       },
       params: getId
     }).then(res => {
       if (res.data.code == 1) {
-        // let baseURL=this.baseURL
+        let baseURL=this.baseURL
         this.$axios({
-          // url: baseURL+"/Score/lists",
-          url: "/api/Score/lists",
+          url: baseURL+"/Score/lists",
+          // url: "/api/Score/lists",
           headers: {
             token: sessionStorage.getItem("token")
           },
@@ -282,6 +282,25 @@ export default {
 </script>
 
 <style lang='less' scoped>
+.login-tiltle {
+  // display: flex;
+  // text-align: center;
+  // border-bottom: 1px solid black;
+  padding: 20px 0;
+  box-sizing: border-box;
+  // position: relative;
+  text-align: center;
+  background-color: #26b2f3;
+  color: white;
+  span {
+    // margin: 10px auto;
+    // position: absolute;
+    // top: 35%;
+    // left: 40%;
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
 .startTest-index {
   //   border: 1px solid black;
     .login-tiltle {
@@ -378,7 +397,7 @@ export default {
             }
             input {
               height: 20px;
-              width: 20px;
+              width: 40px;
               margin-bottom: 10px;
               margin-left: 5px;
               border: 1px solid black;

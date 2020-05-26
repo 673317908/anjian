@@ -1,12 +1,12 @@
 <template>
   <div class="login">
     <div class="login-index">
-      <div class="Header">
+      <!-- <div class="Header">
         <div class="login-tiltle">
           <h2>实操考试系统</h2>
         </div>
-      </div>
-      <div class="login-content">
+      </div> -->
+      <div class="login-content animated zoomIn">
         <!-- 头像 -->
         <div class="login-content-img">
           <img src="../image/logo.png" alt />
@@ -82,11 +82,11 @@ export default {
             account: this.users.userName,
             password: this.users.userPwd
           });
-          // let baseURL=this.baseURL
+          let baseURL=this.baseURL
           that
             .$axios({
-              // url: baseURL+"/public/dologin",
-              url: "/api/public/dologin",
+              url: baseURL+"/public/dologin",
+              // url: "/api/public/dologin",
               method: "post",
               proxy: true,
               data: postData
@@ -122,8 +122,10 @@ export default {
 .w {
   margin: 0 auto;
 }
-.login-index {
+.login {
+  .login-index {
   box-sizing: border-box;
+  margin-top: 17%;
   .login-tiltle {
     text-align: center;
     border-bottom: 1px solid black;
@@ -131,6 +133,7 @@ export default {
   }
   .login-content {
     margin: 0 auto;
+    transition: 1s;
     // 头像
     .login-content-img {
       width: 300px;
@@ -161,4 +164,6 @@ export default {
     }
   }
 }
+}
+
 </style>

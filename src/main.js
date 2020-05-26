@@ -10,7 +10,15 @@ import '@/styles/reset.css'
 import qs from 'qs'
 import axios from 'axios'
 
-import "../src/iconfont/font_6zawy1341sd/iconfont.css"
+// import "../src/iconfont/font_6zawy1341sd/iconfont.css"
+import "../src/iconfont/font_1576727_ovsxt5o3blc/iconfont.css"
+import animate from "animate.css"
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
+Vue.use(animate)
 // import store from './store/user'
 // axios.defaults.baseURL='http://kaoshi.test.com/api/app'
 // axios.defaults.withCredentials = true
@@ -47,7 +55,8 @@ Vue.prototype.$qs = qs
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-Vue.prototype.baseURL = 'http://anjian.beiqujy.com/api/app'
+// Vue.prototype.baseURL = 'http://anjian.beiqujy.com/api/app'
+Vue.prototype.baseURL = 'http://pointer.cmf/api/app'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
